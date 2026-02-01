@@ -181,11 +181,3 @@ Training produces the following artifacts:
 - Modular, extensible pipeline design
 
 ---
-
-## Future Work
-
-- Online / streaming inference
-- Probabilistic forecasting with uncertainty bounds
-- Remaining Useful Life (RUL) estimation
-- Edge deployment optimization
-
