@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# electric-motor-temperature
-=======
 # PMSM Virtual Sensor: Rotor Temperature Forecasting
 
 An end-to-end **time series forecasting system** for predicting **Permanent Magnet Surface Temperature (`pm`)**
