@@ -189,6 +189,3 @@ Training produces the following artifacts:
 - Remaining Useful Life (RUL) estimation
 - Edge deployment optimization
 
-
-
->>>>>>> 14650a4 (Add PMSM virtual sensor pipeline with manual dataset bootstrap)
