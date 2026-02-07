@@ -22,7 +22,6 @@ https://www.kaggle.com/datasets/wkirgsn/electric-motor-temperature
 pip install -r requirements.txt
 pip install torch
 streamlit run app/streamlit_app.py
-<<<<<<< HEAD
 ```
 
 ---
@@ -44,11 +43,11 @@ Training produces the following artifacts:
 - Modular, extensible pipeline design
 
 ---
-=======
 Results (fill with real numbers)
 Model	Metric (MAE or RMSE)
 Persistence baseline	TODO
 GBDT / Tree model	TODO
 LSTM (reference)	TODO
+
 The dataset file is not included in this repository. Please access it via Kaggle and comply with its license/terms.
 
