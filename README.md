@@ -1,10 +1,7 @@
 
 # PMSM Virtual Sensor: Rotor Temperature Forecasting
-=======
-<img src="assets/demo.gif" width="900" alt="Streamlit demo preview" />
->>>>>>> 5f2013f (Update README and add demo asset)
 
-# PMSM Virtual Sensor — Rotor Temperature Forecasting (pm, 60s Ahead)
+<img src="assets/demo.gif" width="900" alt="Streamlit demo preview" />
 
 End-to-end time series forecasting pipeline to estimate **Permanent Magnet Surface Temperature (`pm`) 60 seconds ahead** from high-frequency PMSM sensor signals, with an interactive Streamlit demo.
 
