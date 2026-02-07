@@ -1,165 +1,31 @@
+
 # PMSM Virtual Sensor: Rotor Temperature Forecasting
+=======
+<img src="assets/demo.gif" width="900" alt="Streamlit demo preview" />
+>>>>>>> 5f2013f (Update README and add demo asset)
 
-An end-to-end **time series forecasting system** for predicting **Permanent Magnet Surface Temperature (`pm`)**
-**60 seconds ahead** using high-frequency sensor data from a **Permanent Magnet Synchronous Motor (PMSM)**.
+# PMSM Virtual Sensor — Rotor Temperature Forecasting (pm, 60s Ahead)
 
-This project demonstrates the design of an **industrial-grade virtual sensor**
-for thermal monitoring, early warning, and model-driven diagnostics.
+End-to-end time series forecasting pipeline to estimate **Permanent Magnet Surface Temperature (`pm`) 60 seconds ahead** from high-frequency PMSM sensor signals, with an interactive Streamlit demo.
 
----
+**Research context (Paderborn University / LEA):**  
+https://ei.uni-paderborn.de/lea/research/forschungsprojekte/electrical-drives-and-mechatronic-systems/temperature-estimation-of-vital-components-in-electric-motors-using-machine-learning
 
-## Business Motivation
+**Public data source:** Electric Motor Temperature dataset (Kaggle)  
+https://www.kaggle.com/datasets/wkirgsn/electric-motor-temperature
 
-Direct temperature sensing on motor components is often impractical due to
-cost, installation constraints, and reliability issues.
+## What this delivers
+- Leakage-safe split by session (`profile_id`) to avoid optimistic evaluation
+- Trainable models (tree-based baseline + LSTM reference)
+- Saved artifacts (models + evaluation reports)
+- Streamlit app for interactive inspection/visualization
 
-A data-driven **virtual sensor** enables:
-- Early detection of overheating
-- Preventive maintenance strategies
-- Reduced hardware and maintenance costs
-- Safer and more reliable motor operation
-
-Operational thresholds used in this project:
-- **Warning:** `pm ≥ 100°C`
-- **Critical:** `pm ≥ 120°C`
-
----
-
-## Dataset
-
-**Source:**  
-This dataset was collected and published by **Paderborn University (University of Paderborn, Germany)**  
-and is publicly distributed via **Kaggle** under the title **Electric Motor Temperature**.
-
-Required raw file:
-```
-measures_v2.csv   (~300 MB)
-```
-
-Expected location:
-```
-data/raw/measures_v2.csv
-```
-
-Dataset characteristics:
-- Sampling frequency: **2 Hz**
-- Multiple operating sessions identified via `profile_id`
-- Real-world PMSM test bench measurements
-- Raw data directory is intentionally **excluded from version control**
-
----
-
-## Problem Definition
-
-- Task type: **Supervised time series forecasting**
-- Prediction target: `pm(t + 60s)`
-- Input context window: **120 seconds** (240 timesteps)
-- Forecast horizon: **60 seconds**
-- Data splitting: **Session-based** (`profile_id`) to eliminate leakage
-
----
-
-## Feature Scenarios
-
-### Scenario S1 — Production Feasible
-Signals typically available in embedded or production systems:
-```
-u_d, u_q, i_d, i_q, motor_speed, coolant, ambient
-```
-
-### Scenario S2 — Upper Bound
-Extended thermal and load information:
-```
-S1 + torque, stator_winding, stator_tooth, stator_yoke
-```
-
----
-
-## Modeling Approaches
-
-### Gradient Boosted Decision Trees (GBDT)
-- Lagged and rolling statistical features
-- Strong and interpretable baseline for tabular time series
-- Efficient training and inference
-
-Execution:
-```
-python scripts/run_train.py
-```
-
-### Deep Learning — LSTM
-- Sequence-to-one forecasting architecture
-- Learns temporal dynamics directly from raw sequences
-- Used as an upper-bound performance reference
-
-Execution:
-```
-python scripts/run_train_dl.py
-```
-
----
-
-## Repository Structure
-
-```
-electric-motor-temperature/
-├── app/
-│   └── streamlit_app.py
-├── artifacts/
-│   ├── models/
-│   └── reports/
-├── data/
-│   ├── raw/          # measures_v2.csv (gitignored)
-│   └── processed/
-├── scripts/
-│   ├── run_train.py
-│   ├── run_train_dl.py
-│   ├── run_backtest.py
-│   ├── check_alarms.py
-│   └── persistence_baseline.py
-└── src/
-    ├── config.py
-    ├── data.py
-    ├── split.py
-    ├── features.py
-    ├── train.py
-    ├── evaluate.py
-    ├── utils.py
-    └── dl/
-        ├── dataset.py
-        ├── model.py
-        └── train.py
-```
-
----
-
-## Reproducibility
-
-### Environment setup
-```
+## Quickstart (run the demo locally)
+```bash
 pip install -r requirements.txt
 pip install torch
-```
-
-### Dataset download (recommended)
-```
-python scripts/download_dataset.py --outdir data/raw
-```
-
-Prerequisites:
-- Kaggle account
-- `kaggle.json` API token located at:
-  - Windows: `%USERPROFILE%\.kaggle\kaggle.json`
-  - Linux / macOS: `~/.kaggle/kaggle.json`
-
-### Model training
-```
-python scripts/run_train.py
-```
-
-### Interactive demo
-```
 streamlit run app/streamlit_app.py
+<<<<<<< HEAD
 ```
 
 ---
@@ -181,3 +47,11 @@ Training produces the following artifacts:
 - Modular, extensible pipeline design
 
 ---
+=======
+Results (fill with real numbers)
+Model	Metric (MAE or RMSE)
+Persistence baseline	TODO
+GBDT / Tree model	TODO
+LSTM (reference)	TODO
+The dataset file is not included in this repository. Please access it via Kaggle and comply with its license/terms.
+
